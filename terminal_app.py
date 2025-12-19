@@ -21,7 +21,7 @@ while True:
         sodium = float(input("Sodium (mg): "))
         SodiumStatus = input("Sodium status (Low/Medium/High): ")
         calories = float(input("Calories: "))
-        ServingSize = float(input("Serving Size: "))
+        ServingSize = input("Serving Size: ")
 
         models.add_food(name, category, carbs, GI, GINote, sodium, SodiumStatus, calories, ServingSize)
     

@@ -11,6 +11,21 @@ def add_food(name,category,carbs,GI,GINote,sodium,SodiumStatus,calories,ServingS
     con.commit()
     con.close()
 
+def update_food(original_name, name, category, carbs, GI, GINote, sodium, SodiumStatus, calories, ServingSize):
+    con = db.get_connection()
+    cur = con.cursor()
+    cur.execute("UPDATE Food SET name=?, category=?, carbs=?, GI=?, GINote=?, sodium=?, SodiumStatus=?, calories=?, ServingSize=? WHERE name=?",
+                (name, category, carbs, GI, GINote, sodium, SodiumStatus, calories, ServingSize, original_name))
+    con.commit()
+    con.close()
+
+def delete_food(name):
+    con = db.get_connection()
+    cur = con.cursor()
+    cur.execute("DELETE FROM Food WHERE name=?", (name,))
+    con.commit()
+    con.close()
+
 def get_all_foods():
     con = db.get_connection()
     cur = con.cursor()
